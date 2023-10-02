@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AplicacionOri</string>
+
+    <string-array name="countries">
+        <item>Seleccionar País</item>
+        <item>Chile</item>
+        <item>Venezuela</item>
+        <!-- Agrega más países según tus necesidades -->
+    </string-array>
+
+</resources>
