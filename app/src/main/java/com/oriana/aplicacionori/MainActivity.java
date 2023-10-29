@@ -25,5 +25,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+    public void irMapa(View view){
+        Intent i = new Intent(MainActivity.this, MapaActivity.class);
+        startActivity(i);
+
+    }
 }
 

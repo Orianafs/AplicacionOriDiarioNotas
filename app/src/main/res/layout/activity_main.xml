@@ -116,6 +116,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/iniciarSesionPantalla"
                 android:layout_gravity="center"/>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Mapa2"
+                android:layout_width="247dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:onClick="irMapa"
+                android:text="Mapa"
+                app:backgroundTint="@color/ROSITA"
+                app:cornerRadius="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Mapa" />
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="10dp" />

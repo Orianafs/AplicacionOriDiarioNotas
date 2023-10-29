@@ -7,5 +7,6 @@
         <item>Venezuela</item>
         <!-- Agrega más países según tus necesidades -->
     </string-array>
+    <string name="mapbox_access_token">pk.eyJ1Ijoib3JpNTMiLCJhIjoiY2xudzJ4MDFnMDRueTJrbGw2MThreXFrNCJ9.-ic9kK1kRFg2bnuSE7o0bg</string>
 
 </resources>
