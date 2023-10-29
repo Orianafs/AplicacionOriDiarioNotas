@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(username.getText().toString().equals("oriana") && password.getText().toString().equals("123")){
                     //correct
-                    Intent myIntent = new Intent(LoginActivity.this, TareaActivity.class);
+                    Intent myIntent = new Intent(LoginActivity.this, Splash2Activity.class);
                     startActivity(myIntent);
 
 
