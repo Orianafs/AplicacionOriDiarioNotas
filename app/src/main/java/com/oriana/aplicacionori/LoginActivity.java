@@ -26,8 +26,35 @@ public class LoginActivity extends AppCompatActivity {
         //admin and admin
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
+
+            private void UnSegundo(){
+                try{
+                    Thread.sleep(1000);
+                }catch (InterruptedException e){}
+            }
+            void Hilos(){
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(int i=1; i<=10; i++){
+                            UnSegundo();
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getBaseContext(), "Iniciando Aplicación", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                    }
+                }).start();
+            }
+
+
             @Override
             public void onClick(View v) {
+
+                Hilos();
                 if(username.getText().toString().equals("oriana") && password.getText().toString().equals("123")){
                     //correct
                     Intent myIntent = new Intent(LoginActivity.this, Splash2Activity.class);

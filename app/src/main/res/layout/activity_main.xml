@@ -89,8 +89,9 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/iniciarSesionPantalla"
-                android:layout_width="244dp"
+                android:layout_width="248dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center"
                 android:onClick="irLogin"
                 android:text="Iniciar Sesión"
                 app:backgroundTint="@color/ROSITA"
@@ -99,8 +100,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                android:layout_gravity="center"/>
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/registrarPantalla"
@@ -118,7 +118,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/Mapa2"
-                android:layout_width="247dp"
+                android:layout_width="249dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:onClick="irMapa"
