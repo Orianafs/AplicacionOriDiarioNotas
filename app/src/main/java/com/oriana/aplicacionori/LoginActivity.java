@@ -1,72 +1,69 @@
 package com.oriana.aplicacionori;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+// Importar las clases necesarias
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButton;
+import com.oriana.aplicacionori.Utils.DataBaseUsuarios;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
- //hola
+
+    private TextView username;
+    private TextView password;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        TextView username =(TextView) findViewById(R.id.login_email);
-        TextView password =(TextView) findViewById(R.id.login_password);
+        TextView username = findViewById(R.id.login_email);
+        TextView password = findViewById(R.id.login_password);
 
-        Button loginbtn = (Button)  findViewById(R.id.login_button);
-        //admin and admin
 
+        // ...
+
+        Button loginbtn = findViewById(R.id.login_button);
         loginbtn.setOnClickListener(new View.OnClickListener() {
-
-            private void UnSegundo(){
-                try{
-                    Thread.sleep(1000);
-                }catch (InterruptedException e){}
-            }
-            void Hilos(){
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        for(int i=1; i<=10; i++){
-                            UnSegundo();
-                        }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(getBaseContext(), "Iniciando Aplicación", Toast.LENGTH_LONG).show();
-                            }
-                        });
-
-                    }
-                }).start();
-            }
-
-
             @Override
             public void onClick(View v) {
-
-                Hilos();
-                if(username.getText().toString().equals("oriana") && password.getText().toString().equals("123")){
-                    //correct
+                // Verificar el inicio de sesión en la base de datos
+                if (verificarCredenciales(username.getText().toString(), password.getText().toString())) {
+                    // Inicio de sesión correcto
                     Intent myIntent = new Intent(LoginActivity.this, Splash2Activity.class);
                     startActivity(myIntent);
-
-
-                }else
-                    //incorrect
-                    Toast.makeText(LoginActivity.this,"Inicio Fallido, Intentelo de nuevo!!!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Inicio de sesión incorrecto
+                    Toast.makeText(LoginActivity.this, "Inicio Fallido, Intentelo de nuevo!!!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
 
+    // Método para verificar las credenciales en la base de datos
+    private boolean verificarCredenciales(String username, String password) {
+        DataBaseUsuarios dbHelper = new DataBaseUsuarios(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
 
+        // Consultar la base de datos para verificar las credenciales
+        Cursor cursor = db.rawQuery("SELECT * FROM usuarios WHERE username=? AND password=?", new String[]{username, password});
+
+        // Verificar si se encontraron resultados
+        boolean result = cursor.moveToFirst();
+
+        // Cerrar el cursor y la base de datos
+        cursor.close();
+        db.close();
+
+        return result;
     }
 }
