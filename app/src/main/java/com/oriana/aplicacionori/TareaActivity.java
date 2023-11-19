@@ -2,6 +2,7 @@ package com.oriana.aplicacionori;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,6 +51,10 @@ public class TareaActivity extends AppCompatActivity implements DialogCloseListe
         taskRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);
+
+        ItemTouchHelper itemTouchHelper = new
+                ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
+        itemTouchHelper.attachToRecyclerView(taskRecyclerView);
 
         taskList = db.getAllTasks();
         Collections.reverse(taskList);
