@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- colors.xml -->
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
@@ -6,5 +6,7 @@
     <color name="Melocoton">#f9a799</color>
     <color name="PIEL">#F5DABD</color>
     <color name="ROSITA">#F4BFAD</color>
-
+    <!-- Agrega colores nocturnos según sea necesario -->
+    <color name="black_night">#000000</color>
+    <color name="Melocoton_night">#663300</color>
 </resources>

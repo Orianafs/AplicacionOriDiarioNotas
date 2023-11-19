@@ -1,7 +1,12 @@
+<!-- themes.xml (Night) -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.AplicacionOri" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Base application theme for night mode. -->
+    <style name="Base.Theme.AplicacionOri.Night" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/lavender</item>
+        <item name="colorPrimaryDark">@color/black_night</item>
+        <item name="colorAccent">@color/Melocoton_night</item>
+        <!-- Agrega otros atributos específicos del tema nocturno según sea necesario -->
     </style>
+
+    <style name="Theme.AplicacionOri.Night" parent="Base.Theme.AplicacionOri.Night" />
 </resources>
