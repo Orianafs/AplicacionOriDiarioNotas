@@ -1,16 +1,21 @@
 package com.oriana.aplicacionori.Adapter;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.oriana.aplicacionori.AddNewTask;
 import com.oriana.aplicacionori.Model.ToDoModel;
 import com.oriana.aplicacionori.R;
 import com.oriana.aplicacionori.TareaActivity;
+import com.oriana.aplicacionori.Utils.DataBaseHandler;
 
 import java.util.List;
 
@@ -19,8 +24,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
     private List<ToDoModel> todoList;
     private TareaActivity activity;
 
-    public ToDoAdapter(TareaActivity activity) {
-
+    private DataBaseHandler db;
+    public ToDoAdapter(DataBaseHandler db, TareaActivity activity) {
+        this.db = db;
         this.activity = activity;
     }
 
@@ -33,26 +39,60 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
     }
 
     public void onBindViewHolder(ViewHolder holder, int position) {
+        db.openDatabase();
         ToDoModel item = todoList.get(position);
         holder.task.setText(item.getTask());
         holder.task.setChecked(toBoolean(item.getStatus()));
+        holder.task.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+              if(isChecked){
+                  db.updateStatus(item.getId(),1);
+              }
+              else {
+                  db.updateStatus(item.getId(),0);
+              }
+            }
+        });
 
 
 
     }
 
+    private boolean toBoolean(int n) {
+        return n != 0;
+    }
+
+    @Override
     public int getItemCount() {
-    return todoList.size();
-    }
-    private boolean toBoolean (int n ) {
-    return n!=0;
+        return todoList.size();
     }
 
-    public void setTask(List<ToDoModel> todoList){
+    public Context getContext() {
+        return activity;
+    }
+
+    public void setTasks(List<ToDoModel> todoList) {
         this.todoList = todoList;
         notifyDataSetChanged();
     }
 
+    public void deleteItem(int position) {
+        ToDoModel item = todoList.get(position);
+        db.deleteTask(item.getId());
+        todoList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void editItem(int position) {
+        ToDoModel item = todoList.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", item.getId());
+        bundle.putString("task", item.getTask());
+        AddNewTask fragment = new AddNewTask();
+        fragment.setArguments(bundle);
+        fragment.show(activity.getSupportFragmentManager(), AddNewTask.TAG);
+    }
 
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
