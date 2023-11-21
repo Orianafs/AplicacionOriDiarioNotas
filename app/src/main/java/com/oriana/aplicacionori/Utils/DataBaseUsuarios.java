@@ -37,6 +37,19 @@ public class DataBaseUsuarios extends SQLiteOpenHelper {
         // Implementa la lógica de actualización si es necesario
     }
 
+    public void insertarUsuarioPorDefecto() {
+        // Puedes ajustar estos valores según tus necesidades
+        String usernamePorDefecto = "usuario";
+        String passwordPorDefecto = "clave";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USERNAME, usernamePorDefecto);
+        values.put(COLUMN_PASSWORD, passwordPorDefecto);
+        db.insert(TABLE_NAME, null, values);
+        db.close();
+    }
+
     // Método para insertar un nuevo usuario en la base de datos
     public void insertarUsuario(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();

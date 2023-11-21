@@ -27,7 +27,8 @@ public class LoginActivity extends AppCompatActivity {
 
         TextView username = findViewById(R.id.login_email);
         TextView password = findViewById(R.id.login_password);
-
+        DataBaseUsuarios dbHelper = new DataBaseUsuarios(this);
+        dbHelper.insertarUsuarioPorDefecto();
 
         // ...
 
