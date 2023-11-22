@@ -18,7 +18,28 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextView username;
     private TextView password;
+    private void UnSegundo(){
+        try{
+            Thread.sleep(800);
+        }catch (InterruptedException e){}
+    }
+    void Hilos(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=1; i<=10; i++){
+                    UnSegundo();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getBaseContext(), "Hilo funcionando", Toast.LENGTH_LONG).show();
+                    }
+                });
 
+            }
+        }).start();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +53,12 @@ public class LoginActivity extends AppCompatActivity {
 
         // ...
 
+
         Button loginbtn = findViewById(R.id.login_button);
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Hilos();
                 // Verificar el inicio de sesión en la base de datos
                 if (verificarCredenciales(username.getText().toString(), password.getText().toString())) {
                     // Inicio de sesión correcto
