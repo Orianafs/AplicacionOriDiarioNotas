@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "432589476956",
+    "firebase_url": "https://blogoriana-5868c-default-rtdb.firebaseio.com",
+    "project_id": "blogoriana-5868c",
+    "storage_bucket": "blogoriana-5868c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432589476956:android:73fb2b0fe598f204b80299",
+        "android_client_info": {
+          "package_name": "com.oriana.aplicacionori"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApzpoZAKsY8edYWfKjAxJxinjMtPqTOAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

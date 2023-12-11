@@ -4,10 +4,8 @@
     <!-- Always include this permission -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include only if your app benefits from precise location access. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.PROXIMITY_SCREEN_OFF_WAKE_LOCK" />
 
     <application
@@ -21,6 +19,9 @@
         android:theme="@style/Theme.AplicacionOri"
         tools:targetApi="31">
         <activity
+            android:name=".MqttActivity"
+            android:exported="false" />
+        <activity
             android:name=".MapaActivity"
             android:exported="false" />
         <activity
@@ -32,9 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TaskActivity"
-            android:exported="false" />
         <activity
             android:name=".NuevaTareaActivity"
             android:exported="false" />
@@ -49,14 +47,15 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
-        android:name=".Splash2Activity"
-        android:exported="false"></activity>
+            android:name=".Splash2Activity"
+            android:exported="false" />
+
         <service android:name=".ProximityService" />
-
-
-
+        <service
+            android:name="org.eclipse.paho.android.service.MqttService"
+            android:exported="false"/>
     </application>
 
 </manifest>

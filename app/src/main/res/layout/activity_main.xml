@@ -95,12 +95,7 @@
                 android:onClick="irLogin"
                 android:text="Iniciar Sesión"
                 app:backgroundTint="@color/ROSITA"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toTopOf="@+id/registrarPantalla"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
+                app:cornerRadius="40dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/registrarPantalla"
@@ -110,10 +105,6 @@
                 android:text="Registrarse"
                 app:backgroundTint="@color/ROSITA"
                 app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iniciarSesionPantalla"
                 android:layout_gravity="center"/>
 
             <com.google.android.material.button.MaterialButton
@@ -124,11 +115,17 @@
                 android:onClick="irMapa"
                 android:text="Mapa"
                 app:backgroundTint="@color/ROSITA"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Mapa" />
+                app:cornerRadius="40dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMqtt"
+                android:layout_width="249dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:onClick="irMqtt"
+                android:text="Mqtt"
+                app:backgroundTint="@color/ROSITA"
+                app:cornerRadius="40dp"/>
 
             <View
                 android:layout_width="wrap_content"

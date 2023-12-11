@@ -32,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void irMqtt(View view) {
+        Intent i = new Intent(MainActivity.this, MqttActivity.class);
+        startActivity(i);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

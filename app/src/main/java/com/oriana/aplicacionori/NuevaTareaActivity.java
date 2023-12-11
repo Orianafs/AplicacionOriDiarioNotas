@@ -16,7 +16,7 @@ public class NuevaTareaActivity extends AppCompatActivity {
 
     }
     public void irTareasDiarias(View view){
-        Intent i = new Intent(NuevaTareaActivity.this, TaskActivity.class);
+        Intent i = new Intent(NuevaTareaActivity.this, TareaActivity.class);
         startActivity(i);
 
     }
