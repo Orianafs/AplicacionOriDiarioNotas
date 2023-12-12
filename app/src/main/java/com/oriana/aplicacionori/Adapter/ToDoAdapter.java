@@ -34,7 +34,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_task, parent, false);
+                .inflate(R.layout.card_view_task, parent, false);
         return new ViewHolder(itemView);
     }
 

@@ -15,6 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.oriana.aplicacionori.Adapter.ToDoAdapter;
 import com.oriana.aplicacionori.Model.ToDoModel;
 import com.oriana.aplicacionori.Utils.DataBaseHandler;
+import com.oriana.aplicacionori.databinding.ActivityTareaBinding;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,7 +26,7 @@ public class TareaActivity extends AppCompatActivity implements DialogCloseListe
 
     private RecyclerView taskRecyclerView;
     private ToDoAdapter tasksAdapter;
-    private FloatingActionButton fab;
+    private FloatingActionButton fab, allTask;
     private List<ToDoModel> taskList;
     private DataBaseHandler db;
 
@@ -51,6 +52,7 @@ public class TareaActivity extends AppCompatActivity implements DialogCloseListe
         taskRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);
+        allTask = findViewById(R.id.allTask);
 
         ItemTouchHelper itemTouchHelper = new
                 ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
@@ -66,6 +68,11 @@ public class TareaActivity extends AppCompatActivity implements DialogCloseListe
             public void onClick(View view) {
                 AddNewTask.newInstance().show(getSupportFragmentManager(),AddNewTask.TAG);
             }
+        });
+
+        allTask.setOnClickListener(v -> {
+            Intent i = new Intent(TareaActivity.this, TaskListFireActivity.class);
+            startActivity(i);
         });
     }
     @Override

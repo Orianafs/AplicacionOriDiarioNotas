@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         // Iniciar el servicio
         Intent serviceIntent = new Intent(this, ProximityService.class);
@@ -18,22 +18,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void irLogin(View view) {
-        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+        Intent i = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(i);
     }
 
     public void irSignUp(View view) {
-        Intent i = new Intent(MainActivity.this, SingUpActivity.class);
+        Intent i = new Intent(HomeActivity.this, SingUpActivity.class);
         startActivity(i);
     }
 
     public void irMapa(View view) {
-        Intent i = new Intent(MainActivity.this, MapaActivity.class);
+        Intent i = new Intent(HomeActivity.this, MapaActivity.class);
         startActivity(i);
     }
 
     public void irMqtt(View view) {
-        Intent i = new Intent(MainActivity.this, MqttActivity.class);
+        Intent i = new Intent(HomeActivity.this, MqttActivity.class);
         startActivity(i);
     }
 

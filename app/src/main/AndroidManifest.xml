@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
     <!-- Always include this permission -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include only if your app benefits from precise location access. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.PROXIMITY_SCREEN_OFF_WAKE_LOCK" />
 
     <application
@@ -17,7 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacionOri"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+        <activity
+            android:name=".TaskListFireActivity"
+            android:exported="false" />
         <activity
             android:name=".MqttActivity"
             android:exported="false" />
@@ -26,7 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,7 +49,7 @@
             android:name=".SingUpActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".Splash2Activity"
@@ -55,7 +58,7 @@
         <service android:name=".ProximityService" />
         <service
             android:name="org.eclipse.paho.android.service.MqttService"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>
